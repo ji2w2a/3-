@@ -74,7 +74,8 @@ function draw() {
     }
   }
 
-  for (let i = objects.size() - 1; i >= 0; i--) {
+  // 수정된 부분: objects.size() -> objects.length
+  for (let i = objects.length - 1; i >= 0; i--) {
     let obj = objects[i];
     obj.update();
     obj.display();
@@ -328,13 +329,11 @@ function touchMoved() {
 function touchEnded() {
   if (gameOver) return false;
 
-  // changedTouches 또는 마지막 좌표로 이동 거리 계산
   let endX = mouseX;
   let endY = mouseY;
   let dx = endX - touchStartX;
   let dy = endY - touchStartY;
 
-  // 최소 25px 이상 밀었을 때 스와이프로 인식
   if (abs(dx) > 25 || abs(dy) > 25) {
     if (abs(dx) > abs(dy)) {
       if (dx > 0) moveRight();
