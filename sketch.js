@@ -121,7 +121,7 @@ function drawBackground() {
   rect(0, 220, width, height - 220);
 }
 
-void drawTracks() {
+function drawTracks() {
   let horizonY = 220;
 
   noStroke();
